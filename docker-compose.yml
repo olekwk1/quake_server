@@ -3,9 +3,9 @@ services:
   quake-server:
     image: jberrenberg/quake3
     ports:
-    - "27960:27960"
+    - "27960:27960/udp"
     volumes:
     - ./game/pak0.pk3:/pak0.pk3
     - ./config/server.cfg:/home/ioq3srv/.q3a/baseq3/server.cfg
     restart: on-failure
-    command: +set dedicated "LAN" +exec server.cfg
+    command: +set dedicated 1 +exec server.cfg
